@@ -32,8 +32,16 @@ chmod +x ./enviroment_prepare.bash
 sudo su && ./enviroment_prepare.bash
 ```
 При необходимости, вам придется пробросить pmelikov.ru:46306 к 192.168.100.160:3306.
+
 В файле `config.json` вам необходимо указать свой токен телеграм бота.
+
 Для соединения к WEB приложению (в т.ч. к админ-панели), перейдите по адресу localhost:5000 или pmelikov.ru:5000, если вы пробросили 5000 порт.
+
+## Демо
+
+pmelikov.ru:5000
+
+t.me/ForHackInHomeBot
 
 ## Лицензия
 
