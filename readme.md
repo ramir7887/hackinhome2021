@@ -27,7 +27,7 @@ StankinOnline - это лучшее решение из доступных ср�
 Для установки всех необходимых компонентов, внесите локальный адрес вашего сервера в скрипт enviroment_prepare.bash, а затем запустите его:
 
 ```sh
-git clone https://github.com/ramir7887/webpanel.git
+git clone https://github.com/pmelikov/hackinhome2021.git
 chmod +x ./enviroment_prepare.bash
 sudo su && ./enviroment_prepare.bash
 ```
