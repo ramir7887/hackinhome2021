@@ -37,7 +37,7 @@ if [ 'sed -i "s/.*bind-address.*/bind-address = 192.168.100.160/" /etc/mysql/mar
 fi
 
 #Создание БД
-#mysql  -u root -e "CREATE USER 'Solidworks'@'localhost' IDENTIFIED BY 'Пароль от бд';"
+#mysql  -u root -e "CREATE USER 'Имя пользователя бд'@'localhost' IDENTIFIED BY 'Пароль от бд';"
 #mysql  -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'Имя пользователя бд'@'localhost';"
 mysql  -u root -e "CREATE USER 'Имя пользователя бд'@'%' IDENTIFIED BY 'Пароль от бд';"
 mysql  -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'Имя пользователя бд'@'%';"
@@ -57,6 +57,11 @@ pip3 install Flask flask_sqlalchemy flask-cors
 curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 apt-get install -y nodejs
 
+cd frontend
+npm install
 
-mkdir /hackinhome2021
-cd /hackinhome2021
+cd ../
+pip3 install -r requirements.txt
+
+# Запуск телеграм бота и ВЕБ сервера
+((cd frontend && npm run serve) | (cd backend/ && python3 app.py))

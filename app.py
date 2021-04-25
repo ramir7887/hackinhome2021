@@ -361,6 +361,9 @@ def get_form():
     res = re.split('\\n\\n', request.json['params']['answers'])
     for i in res:
         res_local = re.split('\\n', i)
+        for j in range(len(res_local)):
+            tmp = res_local[j].replace(' ','_').replace('(', '').replace(')', '').replace(':','').replace('?','')
+            res_local[j]=tmp
         print(res_local)
         dic[str(res_local[0])] = str(res_local[1])
     # form = request.get_data(as_text=True)
@@ -372,8 +375,13 @@ def get_form():
                                   port='46306',
                                   database='hackinhome')
     c = con.cursor(dictionary=True)
-    print(f""" INSERT INTO {request.json['params']['form_id']} {tuple(dic.keys())} VALUES {tuple(dic.values())}""")
-    c.execute(f""" INSERT INTO {request.json['params']['form_id']} {tuple(dic.keys())} VALUES {tuple(dic.values())}""")
+    lst = list()
+    for key, value in dic.items():
+        lst.append(key)
+
+    keys = '(' + ','.join(lst) + ')'
+    print(f""" INSERT INTO {request.json['params']['form_id']} {keys} VALUES {tuple(dic.values())}""")
+    c.execute(f""" INSERT INTO {request.json['params']['form_id']} {keys} VALUES {tuple(dic.values())}""")
     con.commit()
     c.close()
     return jsonify({"result": "ok"})
