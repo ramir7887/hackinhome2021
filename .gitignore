@@ -1,0 +1,8 @@
+/logs/
+/.vscode/
+/.idea/
+/backend/config.json
+/frontend/node_modules
+config.json
+/backend/__pycache__
+/frontend/README.md
